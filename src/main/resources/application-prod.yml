@@ -1,0 +1,8 @@
+app:
+  datasource:
+    main:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: ${DATASOURCE_JDBC_URL}
+      username: ${DATASOURCE_JDBC_USERNAME}
+      password: ${DATASOURCE_JDBC_PASSWORD}
+      pool-size: ${DATASOURCE_JDBC_POOLSIZE}
