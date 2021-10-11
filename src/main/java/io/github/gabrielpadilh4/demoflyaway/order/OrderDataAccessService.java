@@ -58,4 +58,17 @@ public class OrderDataAccessService implements OrderDAO {
                 .stream()
                 .findFirst();
     }
+
+    @Override
+    public Optional<Order> selectOrderByInternalCode(String internalCode) {
+        var sql = """
+                SELECT id, internal_code, store_name, order_date
+                FROM orders
+                WHERE internal_code = ?;
+                """;
+
+        return jdbcTemplate.query(sql, new OrderRowMapper(), internalCode)
+                .stream()
+                .findFirst();
+    }
 }
