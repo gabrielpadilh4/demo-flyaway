@@ -14,4 +14,9 @@ public interface OrderService {
     void deleteOrder(int id);
 
     Order getOrder(int id);
+
+    Order getOrderUsingInternalCode(String internalCode);
+
+    Order getOrderWithLineItems(int id);
+
 }

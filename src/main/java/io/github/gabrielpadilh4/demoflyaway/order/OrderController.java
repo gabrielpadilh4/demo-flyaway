@@ -21,8 +21,18 @@ public class OrderController {
     }
 
     @GetMapping("{id}")
-    public Order getOrderId(@RequestParam("id") Integer id) {
+    public Order getOrderId(@PathVariable("id") Integer id) {
         return orderService.getOrder(id);
+    }
+
+    @GetMapping("/search/{internalCode}")
+    public Order getOrderByInternalCode(@PathVariable("internalCode") String internalCode) {
+        return orderService.getOrderUsingInternalCode(internalCode);
+    }
+
+    @GetMapping("/details/{id}")
+    public Order getOrderWithLines(@PathVariable("id") Integer id) {
+        return orderService.getOrderWithLineItems(id);
     }
 
     @PostMapping
@@ -31,7 +41,7 @@ public class OrderController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteOrder(@RequestParam("id") Integer id) {
+    public void deleteOrder(@PathVariable("id") Integer id) {
         orderService.deleteOrder(id);
     }
 
